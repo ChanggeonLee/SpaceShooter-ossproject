@@ -1,4 +1,7 @@
 from os import path
+from __future__ import division
+import pygame
+
 ## assets folder
 img_dir = path.join(path.dirname(__file__), 'assets')
 sound_folder = path.join(path.dirname(__file__), 'sounds')
