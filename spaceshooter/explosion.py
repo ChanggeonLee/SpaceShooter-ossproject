@@ -1,5 +1,6 @@
 import pygame
-
+from load_img import *
+from load_sound import *
 
 class Explosion(pygame.sprite.Sprite):
     def __init__(self, center, size):
