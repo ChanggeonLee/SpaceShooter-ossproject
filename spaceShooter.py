@@ -19,14 +19,14 @@ from __future__ import division
 import pygame
 from os import path
 import random
-import main_menu
-import draw
-import explosion
-import bullet
-import missile
-import mob
-import play
-import pow
+import Main_menu
+import Draw
+import Explosion
+import Bullet
+import Missile
+import Mob
+import Play
+import Pow
 
 ## assets folder
 img_dir = path.join(path.dirname(__file__), 'assets')
