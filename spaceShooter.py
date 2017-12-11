@@ -18,7 +18,6 @@
 from __future__ import division
 import pygame
 import random
-from os import path
 import setting
 import main_menu
 import draw
@@ -28,7 +27,8 @@ import missile
 import mob
 import play
 import pow
-            
+
+
 ###################################################
 ## Load all game images
 
