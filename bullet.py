@@ -1,3 +1,4 @@
+import pygame
 ## defines the sprite for bullets
 class Bullet(pygame.sprite.Sprite):
     def __init__(self, x, y):

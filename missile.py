@@ -1,4 +1,4 @@
-
+import pygame
 ## FIRE ZE MISSILES
 class Missile(pygame.sprite.Sprite):
     def __init__(self, x, y):

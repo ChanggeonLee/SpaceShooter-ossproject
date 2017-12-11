@@ -1,3 +1,4 @@
+import pygame
 def main_menu():
     global screen
 

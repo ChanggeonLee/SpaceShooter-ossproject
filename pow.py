@@ -1,4 +1,4 @@
-
+import pygame
 ## defines the sprite for Powerups
 class Pow(pygame.sprite.Sprite):
     def __init__(self, center):

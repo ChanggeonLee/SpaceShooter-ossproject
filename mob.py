@@ -1,4 +1,4 @@
-
+import pygame
 def newmob():
     mob_element = Mob()
     all_sprites.add(mob_element)
