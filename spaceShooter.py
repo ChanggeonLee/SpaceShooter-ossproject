@@ -20,10 +20,10 @@ import pygame
 from os import path
 import random
 import menu
-import Draw
-import Explosion
-import Bullet
-import Missile
+import draw
+import explosion
+import bullet
+import missile
 import Mob
 import Play
 import Pow
