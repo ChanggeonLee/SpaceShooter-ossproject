@@ -19,7 +19,7 @@ from __future__ import division
 import pygame
 from os import path
 import random
-import Main_menu
+import menu
 import Draw
 import Explosion
 import Bullet
