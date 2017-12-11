@@ -1,6 +1,7 @@
 import pygame
 import random
 from load_img import *
+
 # defines the enemies
 class Mob(pygame.sprite.Sprite):
     def __init__(self):
