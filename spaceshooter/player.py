@@ -1,4 +1,7 @@
 import pygame
+from draw import *
+from setting import *
+
 class Player(pygame.sprite.Sprite):
     def __init__(self):
         pygame.sprite.Sprite.__init__(self)
