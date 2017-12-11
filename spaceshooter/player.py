@@ -1,7 +1,8 @@
 import pygame
 from draw import *
 from setting import *
-
+from load_img import * 
+from load_sound import *
 class Player(pygame.sprite.Sprite):
     def __init__(self):
         pygame.sprite.Sprite.__init__(self)
