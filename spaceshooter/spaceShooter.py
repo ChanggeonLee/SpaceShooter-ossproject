@@ -20,7 +20,7 @@ import pygame
 import random
 from os import path
 from menu import *
-
+from draw import *
 
 def newmob():
     mob_element = Mob()

@@ -34,7 +34,6 @@ pygame.display.set_caption("Space Shooter")
 clock = pygame.time.Clock()     ## For syncing the FPS
 ###############################
 
-font_name = pygame.font.match_font('arial')
     
 def main_menu():
     global screen
