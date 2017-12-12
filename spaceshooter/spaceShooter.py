@@ -257,7 +257,7 @@ while running:
     ## as there will be no mob_elements left out 
     for hit in hits:
         score += 50 - hit.radius         ## give different scores for hitting big and small metoers
-        if score>10*level*level:
+        if score>1000*level*level:
             newmob()
             level += 1
             newboss()
