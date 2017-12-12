@@ -1,10 +1,6 @@
 import pygame
 from load_img import *
 from load_sound import * 
-def newmob():
-    mob_element = Mob()
-    all_sprites.add(mob_element)
-    mobs.add(mob_element)
 
 ## defines the sprite for bullets
 class Bullet(pygame.sprite.Sprite):

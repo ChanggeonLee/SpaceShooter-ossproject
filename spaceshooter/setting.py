@@ -34,3 +34,7 @@ clock = pygame.time.Clock()     ## For syncing the FPS
 ###############################
 
 font_name = pygame.font.match_font('arial')
+
+global all_sprites
+global bullets
+global powerups
