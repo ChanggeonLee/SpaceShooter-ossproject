@@ -3,7 +3,7 @@ from os import path
 from draw import *
 from setting import *
     
-def main_menu():
+def over():
     global screen
 
     menu_song = pygame.mixer.music.load(path.join(sound_folder, "menu.ogg"))
@@ -29,7 +29,7 @@ def main_menu():
         else:
             draw_text(screen, "Game Over", 30, WIDTH/2, HEIGHT/2)
             draw_text(screen, "Press [ENTER] To Begin", 30, WIDTH/2, (HEIGHT/2)+40)
-            draw_text(screen, "or [Q] To Quit", 30, WIDTH/2, (HEIGHT/2)+40)
+            draw_text(screen, "or [Q] To Quit", 30, WIDTH/2, (HEIGHT/2)+80)
             pygame.display.update()
 
     #pygame.mixer.music.stop()

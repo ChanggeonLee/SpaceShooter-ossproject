@@ -30,6 +30,7 @@ from missile import *
 from bullet import *
 from player import *
 from bossmob import *
+from gameover import *
 
 level = 1
 bosses = pygame.sprite.Group()
@@ -151,6 +152,7 @@ class Player(pygame.sprite.Sprite):
 ## Game loop
 running = True
 menu_display = True
+over_display = False
 while running:
     if menu_display:
         main_menu()
@@ -163,6 +165,38 @@ while running:
         pygame.mixer.music.play(-1)     ## makes the gameplay sound in an endless loop
         
         menu_display = False
+        
+        ## group all the sprites together for ease of update
+        all_sprites = pygame.sprite.Group()
+        player = Player()
+        all_sprites.add(player)
+
+        ## spawn a group of mob
+        mobs = pygame.sprite.Group()
+        for i in range(2):      ## 8 mobs
+            # mob_element = Mob()
+            # all_sprites.add(mob_element)
+            # mobs.add(mob_element)
+            newmob()
+
+        ## group for bullets
+        bullets = pygame.sprite.Group()
+        powerups = pygame.sprite.Group()
+
+        #### Score board variable
+        score = 0
+
+    if over_display:
+        over()
+        pygame.time.wait(3000)
+
+        #Stop menu music
+        pygame.mixer.music.stop()
+        #Play the gameplay music
+        pygame.mixer.music.load(path.join(sound_folder, 'tgfcoder-FrozenJam-SeamlessLoop.ogg'))
+        pygame.mixer.music.play(-1)     ## makes the gameplay sound in an endless loop
+        
+        over_display = False
         
         ## group all the sprites together for ease of update
         all_sprites = pygame.sprite.Group()
@@ -282,7 +316,8 @@ while running:
 
     ## if player died and the explosion has finished, end game
     if player.lives == 0 and not death_explosion.alive():
-        running = False
+        # running = False
+        over_display = True
         # menu_display = True
         # pygame.display.update()
 
