@@ -29,13 +29,19 @@ from load_sound import *
 from missile import *
 from bullet import *
 from player import *
+from bossmob import *
 
 level = 1
-
+bosses = pygame.sprite.Group()
 def newmob():
     mob_element = Mob()
     all_sprites.add(mob_element)
     mobs.add(mob_element)
+
+def newboss():
+    boss_element = BossMob()
+    all_sprites.add(boss_element)
+    bosses.add(boss_element)
     
 class Player(pygame.sprite.Sprite):
     def __init__(self):
@@ -200,14 +206,27 @@ while running:
 
     ## check if a bullet hit a mob
     ## now we have a group of bullets and a group of mob
+    hits = pygame.sprite.groupcollide(bosses, bullets, False, True)
+    for hit in hits:
+        hit.hp -= 10
+        expl = Explosion(hit.rect.center,'sm')
+        if hit.hp<=0:
+            hit.kill()
+            score += 500*level
+            expl = Explosion(hit.rect.center,'lg')
+            
+        all_sprites.add(expl)
+
+    
     hits = pygame.sprite.groupcollide(mobs, bullets, True, True)
     ## now as we delete the mob element when we hit one with a bullet, we need to respawn them again
     ## as there will be no mob_elements left out 
     for hit in hits:
         score += 50 - hit.radius         ## give different scores for hitting big and small metoers
-        if score>1000*level*level:
+        if score>10*level*level:
             newmob()
             level += 1
+            newboss()
         random.choice(expl_sounds).play()
         # m = Mob()
         # all_sprites.add(m)
@@ -224,12 +243,24 @@ while running:
     #########################
 
     ## check if the player collides with the mob
+        
     hits = pygame.sprite.spritecollide(player, mobs, True, pygame.sprite.collide_circle)        ## gives back a list, True makes the mob element disappear
     for hit in hits:
         player.shield -= hit.radius * 2
         expl = Explosion(hit.rect.center, 'sm')
         all_sprites.add(expl)
         newmob()
+        if player.shield <= 0: 
+            player_die_sound.play()
+            death_explosion = Explosion(player.rect.center, 'player')
+            all_sprites.add(death_explosion)
+            # running = False     ## GAME OVER 3:D
+            player.hide()
+            player.lives -= 1
+            player.shield = 100
+    hits = pygame.sprite.spritecollide(player, bosses, True, pygame.sprite.collide_circle)
+    for hit in hits:
+        player.shield -= 100
         if player.shield <= 0: 
             player_die_sound.play()
             death_explosion = Explosion(player.rect.center, 'player')

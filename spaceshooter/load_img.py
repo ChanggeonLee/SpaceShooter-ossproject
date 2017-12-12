@@ -54,6 +54,8 @@ powerup_images = {}
 powerup_images['shield'] = pygame.image.load(path.join(img_dir, 'shield_gold.png')).convert()
 powerup_images['gun'] = pygame.image.load(path.join(img_dir, 'bolt_gold.png')).convert()
 
+boss_image = pygame.image.load(path.join(img_dir, 'boss.png')).convert()
+boss_image.set_colorkey(BLACK)
 
 ###################################################
 
