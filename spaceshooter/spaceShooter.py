@@ -294,9 +294,10 @@ while running:
     screen.fill(BLACK)
     ## draw the stargaze.png image
     screen.blit(background, background_rect)
-
+    
     all_sprites.draw(screen)
-    draw_text(screen, str(score), 18, WIDTH / 2, 10)     ## 10px down from the screen
+    draw_text(screen, "level : "+str(level), 18, WIDTH /2 , 30)
+    draw_text(screen, "score : "+str(score), 18, WIDTH / 2, 10)     ## 10px down from the screen
     draw_shield_bar(screen, 5, 5, player.shield)
 
     # Draw lives
