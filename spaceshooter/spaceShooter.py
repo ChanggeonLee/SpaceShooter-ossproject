@@ -30,6 +30,7 @@ from missile import *
 from bullet import *
 from player import *
 
+level = 1
 
 def newmob():
     mob_element = Mob()
@@ -164,7 +165,7 @@ while running:
 
         ## spawn a group of mob
         mobs = pygame.sprite.Group()
-        for i in range(8):      ## 8 mobs
+        for i in range(2):      ## 8 mobs
             # mob_element = Mob()
             # all_sprites.add(mob_element)
             # mobs.add(mob_element)
@@ -204,6 +205,9 @@ while running:
     ## as there will be no mob_elements left out 
     for hit in hits:
         score += 50 - hit.radius         ## give different scores for hitting big and small metoers
+        if score>1000*level*level:
+            newmob()
+            level += 1
         random.choice(expl_sounds).play()
         # m = Mob()
         # all_sprites.add(m)
