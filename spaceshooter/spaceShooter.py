@@ -30,11 +30,6 @@ from load_sound import *
 from missile import *
 from bullet import *
 
-def newmob():
-    mob_element = Mob()
-    all_sprites.add(mob_element)
-    mobs.add(mob_element)
-
 ## TODO: make the game music loop over again and again. play(loops=-1) is not working
 # Error : 
 # TypeError: play() takes no keyword arguments
